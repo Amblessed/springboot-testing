@@ -15,3 +15,16 @@ or annotated beans.
   creates the mock object of the class and
   injects the mocks that are marked with the annotations `@Mock` into it.
 - 
+
+
+# @WebMvcTest Annotation
+- The `@WebMvcTest` annotation is used to test the controller layer in Spring Boot applications.
+- ``@WebMvcTest`` based tests runs faster as it will load only the specified controller and its dependencies only with loading the entire application.
+- Spring Boot instantiates only the web layer rather than the whole application context. In an application with multiple controllers, we can specify the controllers to be tested using the `@WebMvcTest` annotation.
+- For example ``@WebMvcTest(controllers = MyController.class)`` will only load the specified controller and its dependencies.
+
+# @SpringBootTest Annotation
+- The `@SpringBootTest` annotation is used to test the Spring Boot application.
+- ``@SpringBootTest`` based tests will load the entire application context and start the Spring Boot application.
+- ``Unit Testing`` - ``@WebMvcTest`` annotation is used to test the controller layer.
+- ``Integration Testing`` - ``@SpringBootTest`` annotation is used to test the Spring Boot application.

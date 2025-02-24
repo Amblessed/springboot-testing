@@ -33,4 +33,20 @@ public class Employee {
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Employee employee = (Employee) o;
+        return firstName.equals(employee.firstName) && lastName.equals(employee.lastName) && email.equals(employee.email);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = firstName.hashCode();
+        result = 31 * result + lastName.hashCode();
+        result = 31 * result + email.hashCode();
+        return result;
+    }
 }
